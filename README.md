@@ -1,2 +1,2 @@
 # ZombieSlayer
-Attempt to develop a 2D game using JAVA
+Attempt to develop a 2D game using JavaFX
