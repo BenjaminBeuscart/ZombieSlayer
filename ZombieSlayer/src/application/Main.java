@@ -5,6 +5,12 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
+import entities.Enemy;
+import entities.Player;
+import entities.Weapon;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 	@Override
@@ -22,6 +28,18 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		System.out.println("Test commit");
+		
+		List<Enemy> enemies = new ArrayList<Enemy>();
+        for (int i = 0; i < 2; i++) {
+            enemies.add(new Enemy(1, "enemy" + i, 5));
+        }
+        Player playerBen = new Player(0,"Ben", 5);
+        playerBen.setCurrentWeapon(new Weapon(0, "Classic sword", 3, 0.95));
+
+        for (Enemy i : enemies) {
+            while (i.getHp() > 0) {
+                playerBen.attack(i);
+            }
+        }
 	}
 }
